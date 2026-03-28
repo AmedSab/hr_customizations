@@ -143,23 +143,27 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"hr_customizations.tasks.all"
-# 	],
-# 	"daily": [
-# 		"hr_customizations.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"hr_customizations.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"hr_customizations.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"hr_customizations.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	# "all": [
+	# 	"hr_customizations.tasks.all"
+	# ],
+	# "daily": [
+	# 	"hr_customizations.tasks.daily"
+	# ],
+    "daily": [
+        "hr_customizations.scheduled_tasks.generate_attendance_warnings",
+        "hr_customizations.scheduled_tasks.evaluate_attendance_escalations"
+    ],
+	# "hourly": [
+	# 	"hr_customizations.tasks.hourly"
+	# ],
+	# "weekly": [
+	# 	"hr_customizations.tasks.weekly"
+	# ],
+	# "monthly": [
+	# 	"hr_customizations.tasks.monthly"
+	# ],
+}
 
 # Testing
 # -------
@@ -239,7 +243,7 @@ app_license = "mit"
 # ]
 
 # Automatically update python controller files with type annotations for this app.
-# export_python_type_annotations = True
+export_python_type_annotations = True
 
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs

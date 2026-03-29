@@ -1,0 +1,258 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-24 14:44:13.543935",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "employee_name",
+  "warning_date",
+  "employee",
+  "attendance",
+  "company",
+  "warning_type",
+  "late_entry",
+  "early_exit",
+  "absent",
+  "custom",
+  "shift",
+  "scheduled_in_time",
+  "scheduled_out_time",
+  "actual_in_time",
+  "actual_out_time",
+  "state",
+  "justification",
+  "justification_date",
+  "approver",
+  "approval_date",
+  "approval_decision",
+  "approval_remarks",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "options": "Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "attendance.attendance_date",
+   "fieldname": "warning_date",
+   "fieldtype": "Date",
+   "label": "Warning Date"
+  },
+  {
+   "fieldname": "attendance",
+   "fieldtype": "Link",
+   "label": "Attendance",
+   "options": "Attendance",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "attendance.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "warning_type",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "warning Type",
+   "options": "Late Entry\nEarly Exit\nAbsent\nLate Entry and Early Exit\nCustom",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "shift",
+   "fieldtype": "Link",
+   "label": "Shift",
+   "options": "Shift Type",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "shift.start_time",
+   "fieldname": "scheduled_in_time",
+   "fieldtype": "Time",
+   "label": "Scheduled In Time"
+  },
+  {
+   "fetch_from": "shift.end_time",
+   "fieldname": "scheduled_out_time",
+   "fieldtype": "Time",
+   "label": "Scheduled Out Time"
+  },
+  {
+   "fetch_from": "attendance.out_time",
+   "fieldname": "actual_out_time",
+   "fieldtype": "Time",
+   "label": "Actual Out Time"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Select",
+   "label": "State",
+   "options": "Draft\nPending Justification\nPending Approval\nApproved\nRejected\nEscalated\nClosed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "justification",
+   "fieldtype": "Small Text",
+   "label": "Justification"
+  },
+  {
+   "fieldname": "justification_date",
+   "fieldtype": "Datetime",
+   "label": "Justification Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approver",
+   "fieldtype": "Link",
+   "label": "Approver",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Datetime",
+   "label": "Approval Date",
+   "permlevel": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval_decision",
+   "fieldtype": "Select",
+   "label": "Approval Decision",
+   "options": "Approved\nRejected",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "approval_remarks",
+   "fieldtype": "Small Text",
+   "label": "Approval Remarks",
+   "permlevel": 1
+  },
+  {
+   "fetch_from": "attendance.in_time",
+   "fieldname": "actual_in_time",
+   "fieldtype": "Time",
+   "label": "Actual In Time"
+  },
+  {
+   "default": "0",
+   "fetch_from": "attendance.late_entry",
+   "fieldname": "late_entry",
+   "fieldtype": "Check",
+   "label": "Late Entry",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "attendance.early_exit",
+   "fieldname": "early_exit",
+   "fieldtype": "Check",
+   "label": "Early Exit",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "absent",
+   "fieldtype": "Check",
+   "label": "Absent",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "custom",
+   "fieldtype": "Check",
+   "label": "Custom",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Attendance Warning",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-03-28 15:09:33.781376",
+ "modified_by": "Administrator",
+ "module": "Hr Customizations",
+ "name": "Attendance Warning",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Attendance approver",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Attendance approver",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

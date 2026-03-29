@@ -1,0 +1,33 @@
+{
+ "attach_files": "",
+ "attach_print": 0,
+ "channel": "System Notification",
+ "condition": "frappe.db.get_value(\"Employee\", doc.employee, \"user_id\") == frappe.session.user",
+ "condition_type": "Python",
+ "creation": "2026-03-26 08:52:34.571099",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Attendance Warning",
+ "enabled": 0,
+ "event": "New",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<p>Add your message here\nemployee attendance warning employee attendance warning employee attendance warning </p>\n",
+ "message_type": "Markdown",
+ "minutes_offset": 0,
+ "modified": "2026-03-28 09:00:36.898169",
+ "modified_by": "Administrator",
+ "module": "Hr Customizations",
+ "name": "employee attendance warning",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "condition": "frappe.db.get_value(\"Employee\", doc.employee, \"user_id\") == frappe.session.user",
+   "receiver_by_role": "Employee"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "employee attendance warning "
+}

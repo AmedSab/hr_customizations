@@ -1,0 +1,112 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-25 11:35:04.473210",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "month",
+  "year",
+  "rejection_warning_count",
+  "action",
+  "leave_type_for_deduction",
+  "salary_component_for_deduction",
+  "escalation_date",
+  "escalated_by",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "month",
+   "fieldtype": "Data",
+   "label": "Month"
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Int",
+   "label": "Year"
+  },
+  {
+   "fieldname": "rejection_warning_count",
+   "fieldtype": "Int",
+   "label": "Rejection Warning Count"
+  },
+  {
+   "fieldname": "action",
+   "fieldtype": "Select",
+   "label": "Action",
+   "options": "Deduct Leave Day\nDeduct Salary Day\nNo Action"
+  },
+  {
+   "fieldname": "leave_type_for_deduction",
+   "fieldtype": "Link",
+   "label": "Leave Type for Deduction",
+   "mandatory_depends_on": "frm.doc.action === \"Deduct Leave Day\"",
+   "options": "Leave Type"
+  },
+  {
+   "fieldname": "salary_component_for_deduction",
+   "fieldtype": "Link",
+   "label": "Salary Component for Deduction",
+   "mandatory_depends_on": "frm.doc.action === \"Deduct Salary Day\"",
+   "options": "Salary Component"
+  },
+  {
+   "fieldname": "escalation_date",
+   "fieldtype": "Datetime",
+   "label": "Escalation Date"
+  },
+  {
+   "fieldname": "escalated_by",
+   "fieldtype": "Link",
+   "label": "Escalated By",
+   "options": "User"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Attendance Escalation Action",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-03-29 09:39:30.544809",
+ "modified_by": "Administrator",
+ "module": "Hr Customizations",
+ "name": "Attendance Escalation Action",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
